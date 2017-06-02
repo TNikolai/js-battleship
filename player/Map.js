@@ -6,7 +6,7 @@ export const POINT_SHIP = 'POINT_SHIP';
 export const POINT_SINKED = 'POINT_SINKED';
 
 
-const MATRIX_SIZE = 3;
+const MATRIX_SIZE = 10;
 
 export default class Map {
   constructor() {
