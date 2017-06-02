@@ -109,6 +109,8 @@ export default class Map {
         j: j - 1,
       };
     }
+
+    return this.attackRandom();
   }
 
   searchUnknownLeft(i, j) {
