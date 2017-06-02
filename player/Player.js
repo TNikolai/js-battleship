@@ -51,10 +51,10 @@ function markSunk(shot) {
     newRowIdx = rowIdx + offset[0];
     newColIdx = col + offset[1];
     if (newRowIdx >= 0 && newRowIdx <= 9 && newColIdx >= 1 && newColIdx <= 10) {
-      if (cellStatus([ROWS[newRowIdx], col]) === HIT) {
-        markSunk([ROWS[newRowIdx], col]);
+      if (cellStatus([ROWS[newRowIdx], newColIdx]) === HIT) {
+        markSunk([ROWS[newRowIdx], newColIdx]);
       }
-      markCell([ROWS[newRowIdx], col], MISS);
+      markCell([ROWS[newRowIdx], newColIdx], MISS);
     }
   }
 }
