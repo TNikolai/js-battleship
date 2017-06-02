@@ -1,6 +1,6 @@
 import { expect, assert } from 'chai';
 import * as Player from './Player';
-
+console.log(Player.empty.length)
 for (let teamPlayer of [Player]) {
 
 	describe('Testing players required functions', () => {
@@ -31,6 +31,30 @@ for (let teamPlayer of [Player]) {
 				assert.isAbove(attackCoordinates.length, 1, "Coordinates length need be greather than one char");
 				assert.isBelow(attackCoordinates.length, 4, "Coordinates length need be below than 4 chars exmp:  2 > A10 < 4");
 			}
+			// console.log(Player.empty.length, Player.field);
+		});
+	
+		it('attack() -> result', () => {
+			
+				let attackCoordinates = attack();
+				expect(attackCoordinates).to.be.an('string').that.is.not.empty;
+				assert.isAbove(attackCoordinates.length, 1, "Coordinates length need be greather than one char");
+				assert.isBelow(attackCoordinates.length, 4, "Coordinates length need be below than 4 chars exmp:  2 > A10 < 4");
+
+				attackResult('MISS');
+			
+			// console.log(Player.empty.length, Player.field);
+		});
+		it('attack() -> result', () => {
+			
+				let attackCoordinates = attack();
+				expect(attackCoordinates).to.be.an('string').that.is.not.empty;
+				assert.isAbove(attackCoordinates.length, 1, "Coordinates length need be greather than one char");
+				assert.isBelow(attackCoordinates.length, 4, "Coordinates length need be below than 4 chars exmp:  2 > A10 < 4");
+
+				attackResult('SUNK');
+			
+			console.log(Player.getCellName([2,8]));
 		});
 
 	});
