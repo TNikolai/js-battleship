@@ -1,9 +1,11 @@
+import {map, POINT_MISS, POINT_SHIP } from './Map';
+
 /**
  * Returns string name for team.
  * @return {string} for example: 'Navi'
  */
 function getName() {
-	return "Navi";
+	return "AttackOnShip";
 };
 
 /**
@@ -15,7 +17,18 @@ function getName() {
  * @return {void}
  */
 function attackResult(result) {
-
+  switch (result) {
+    case 'DUPLICATED':
+    case 'MISS':
+      map.markLastPoint(POINT_MISS);
+      break;
+    case 'HIT':
+      map.markLastPoint(POINT_SHIP);
+      break;
+    case 'SUNK':
+      map.markLastPoint(POINT_SHIP);
+      map.sinkLastPointArea();
+  }
 };
 
 /**
@@ -24,7 +37,7 @@ function attackResult(result) {
  * @return {string} for example: 'B10'
  */
 function attack() {
-	return 'B10';
+	return map.getRecommendedPoint();
 };
 
 export {
